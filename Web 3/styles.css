@@ -1,0 +1,564 @@
+/* Brutalismo digital — claro / oscuro vía html[data-mode] */
+
+html[data-mode="light"] {
+  --color-background: #ffffff;
+  --color-on-background: #000000;
+  --color-surface: #fdfae4;
+  --color-on-surface: #1c1c0f;
+  --color-on-surface-variant: #484831;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f7f4df;
+  --color-surface-container: #f2efd9;
+  --color-surface-container-high: #ece9d3;
+  --color-surface-container-highest: #e6e3ce;
+  --color-surface-bright: #fdfae4;
+  --color-surface-dim: #dedbc6;
+  --color-surface-variant: #e6e3ce;
+  --color-surface-tint: #626200;
+  --color-primary: #626200;
+  --color-on-primary: #ffffff;
+  --color-primary-container: #ffff00;
+  --color-on-primary-container: #757500;
+  --color-primary-fixed: #eaea00;
+  --color-primary-fixed-dim: #cdcd00;
+  --color-on-primary-fixed: #1d1d00;
+  --color-on-primary-fixed-variant: #494900;
+  --color-secondary: #0001c0;
+  --color-on-secondary: #ffffff;
+  --color-secondary-container: #080cff;
+  --color-on-secondary-container: #b6baff;
+  --color-secondary-fixed: #e0e0ff;
+  --color-secondary-fixed-dim: #bec2ff;
+  --color-on-secondary-fixed: #00006e;
+  --color-on-secondary-fixed-variant: #0000ef;
+  --color-tertiary: #3d6565;
+  --color-on-tertiary: #ffffff;
+  --color-tertiary-container: #d4ffff;
+  --color-on-tertiary-container: #507878;
+  --color-tertiary-fixed: #c0eaeb;
+  --color-tertiary-fixed-dim: #a4cece;
+  --color-on-tertiary-fixed: #002020;
+  --color-on-tertiary-fixed-variant: #244d4e;
+  --color-error: #ba1a1a;
+  --color-on-error: #ffffff;
+  --color-error-container: #ffdad6;
+  --color-on-error-container: #93000a;
+  --color-outline: #79785f;
+  --color-outline-variant: #cac8aa;
+  --color-inverse-surface: #323123;
+  --color-inverse-on-surface: #f5f1dc;
+  --color-inverse-primary: #cdcd00;
+  --ink: #000000;
+  --accent: #ffff00;
+  --accent-2: #0000ff;
+  --shadow: 8px 8px 0px 0px #000000;
+  --shadow-sm: 4px 4px 0px 0px #000000;
+  --shadow-lg: 12px 12px 0px 0px #000000;
+}
+
+html[data-mode="dark"] {
+  --color-background: #0d0d0d;
+  --color-on-background: #fdfae4;
+  --color-surface: #1a1a0f;
+  --color-on-surface: #fdfae4;
+  --color-on-surface-variant: #cac8aa;
+  --color-surface-container-lowest: #14140c;
+  --color-surface-container-low: #16160e;
+  --color-surface-container: #1e1e12;
+  --color-surface-container-high: #262618;
+  --color-surface-container-highest: #2e2e1c;
+  --color-surface-bright: #2a2a18;
+  --color-surface-dim: #0a0a06;
+  --color-surface-variant: #2e2e1c;
+  --color-surface-tint: #cdcd00;
+  --color-primary: #cdcd00;
+  --color-on-primary: #1d1d00;
+  --color-primary-container: #ffff00;
+  --color-on-primary-container: #1d1d00;
+  --color-primary-fixed: #eaea00;
+  --color-primary-fixed-dim: #cdcd00;
+  --color-on-primary-fixed: #1d1d00;
+  --color-on-primary-fixed-variant: #ffff00;
+  --color-secondary: #bec2ff;
+  --color-on-secondary: #00006e;
+  --color-secondary-container: #0000ff;
+  --color-on-secondary-container: #e0e0ff;
+  --color-secondary-fixed: #e0e0ff;
+  --color-secondary-fixed-dim: #bec2ff;
+  --color-on-secondary-fixed: #00006e;
+  --color-on-secondary-fixed-variant: #080cff;
+  --color-tertiary: #a4cece;
+  --color-on-tertiary: #002020;
+  --color-tertiary-container: #244d4e;
+  --color-on-tertiary-container: #d4ffff;
+  --color-tertiary-fixed: #c0eaeb;
+  --color-tertiary-fixed-dim: #a4cece;
+  --color-on-tertiary-fixed: #002020;
+  --color-on-tertiary-fixed-variant: #d4ffff;
+  --color-error: #ffb4ab;
+  --color-on-error: #690005;
+  --color-error-container: #93000a;
+  --color-on-error-container: #ffdad6;
+  --color-outline: #94907a;
+  --color-outline-variant: #484831;
+  --color-inverse-surface: #fdfae4;
+  --color-inverse-on-surface: #1c1c0f;
+  --color-inverse-primary: #626200;
+  --ink: #000000;
+  --accent: #ffff00;
+  --accent-2: #0000ff;
+  --shadow: 8px 8px 0px 0px #ffff00;
+  --shadow-sm: 4px 4px 0px 0px #ffff00;
+  --shadow-lg: 12px 12px 0px 0px #ffff00;
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-on-background);
+}
+
+.brutal-border {
+  border: 4px solid var(--ink);
+}
+
+.brutal-shadow {
+  box-shadow: var(--shadow);
+}
+
+.brutal-shadow-sm {
+  box-shadow: var(--shadow-sm);
+}
+
+.brutal-shadow-lg {
+  box-shadow: var(--shadow-lg);
+}
+
+.brutal-button:active {
+  transform: translate(4px, 4px);
+  box-shadow: var(--shadow-sm);
+}
+
+.brutal-button-primary:active {
+  transform: translate(8px, 8px);
+  box-shadow: 0px 0px 0px 0px var(--ink);
+}
+
+.bg-neo-yellow {
+  background-color: var(--accent);
+}
+
+.bg-neo-blue {
+  background-color: var(--accent-2);
+}
+
+.text-neo-blue {
+  color: var(--accent-2);
+}
+
+html[data-mode="dark"] header.bg-background {
+  background-color: var(--accent);
+  color: var(--ink);
+}
+
+html[data-mode="dark"] header .text-on-background,
+html[data-mode="dark"] header a {
+  color: var(--ink);
+}
+
+html[data-mode="dark"] .card-head {
+  background-color: var(--accent);
+  color: var(--ink);
+}
+
+/* ============================================================
+   ESTILOS BRUTALISTAS PARA PRUEBA EN LÍNEA (TEST/QUIZ)
+   ============================================================ */
+
+/* HEADER DEL TEST */
+.brutal-header {
+  background-color: var(--color-on-background);
+  color: var(--color-background);
+  padding: 2rem;
+  border-bottom: 6px solid var(--color-on-background);
+  box-shadow: 0px 8px 0px 0px var(--color-on-background);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.brutal-header h1 {
+  font-size: 2.5rem;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  margin: 0;
+  text-transform: uppercase;
+  flex: 1;
+}
+
+.btn-back {
+  background-color: var(--accent);
+  color: var(--ink);
+  padding: 0.75rem 1.5rem;
+  border: 3px solid var(--ink);
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.btn-back:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px 0px var(--ink);
+}
+
+.btn-back:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px 0px var(--ink);
+}
+
+/* CONTENEDOR PRINCIPAL DEL QUIZ */
+.quiz-container {
+  max-width: 900px;
+  margin: 3rem auto;
+  padding: 2rem;
+  font-family: 'Inter', sans-serif;
+}
+
+/* TARJETAS BRUTALISTAS */
+.brutal-card {
+  background-color: var(--color-background);
+  border: 4px solid var(--ink);
+  padding: 2.5rem;
+  box-shadow: 8px 8px 0px 0px var(--ink);
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.brutal-card h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin: 0 0 1.5rem 0;
+  letter-spacing: -0.02em;
+}
+
+.brutal-card h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin: 0 0 1rem 0;
+  letter-spacing: 0.05em;
+}
+
+.brutal-card p {
+  margin: 0 0 1.5rem 0;
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+/* CONTADOR / BARRA DE PROGRESO */
+#question-title {
+  background-color: var(--accent);
+  color: var(--ink);
+  padding: 1rem;
+  margin: -2.5rem -2.5rem 1.5rem -2.5rem;
+  border-bottom: 4px solid var(--ink);
+  text-align: center;
+  font-size: 1.3rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* TEXTO DE LA PREGUNTA */
+#question-text {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-on-background);
+  margin-bottom: 2rem;
+  line-height: 1.7;
+  border-left: 5px solid var(--accent);
+  padding-left: 1.5rem;
+}
+
+/* CONTENEDOR DE OPCIONES */
+#options-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+/* BOTONES DE OPCIONES - DISEÑO BRUTALISTA INTERACTIVO */
+.option-btn {
+  background-color: var(--color-surface-container-lowest);
+  border: 4px solid var(--ink);
+  padding: 1.5rem;
+  text-align: left;
+  cursor: pointer;
+  font-size: 1.05rem;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+  transition: all 0.15s ease;
+  box-shadow: 6px 6px 0px 0px var(--ink);
+  position: relative;
+  text-transform: none;
+}
+
+/* HOVER - Efecto brutalista dinámico */
+.option-btn:hover {
+  background-color: var(--accent);
+  color: var(--ink);
+  transform: translate(-3px, -3px);
+  box-shadow: 9px 9px 0px 0px var(--ink);
+}
+
+/* ACTIVE - Click inmediato */
+.option-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 4px 4px 0px 0px var(--ink);
+}
+
+/* OPCIÓN CORRECTA */
+.option-btn.correct {
+  background-color: #00aa00;
+  color: white;
+  border: 4px solid var(--ink);
+  box-shadow: 6px 6px 0px 0px var(--ink);
+}
+
+/* OPCIÓN INCORRECTA */
+.option-btn.incorrect {
+  background-color: #cc0000;
+  color: white;
+  border: 4px solid var(--ink);
+  box-shadow: 6px 6px 0px 0px var(--ink);
+}
+
+/* OPCIÓN DESHABILITADA (después de responder) */
+.option-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.8;
+}
+
+/* BOTONES DE ACCIÓN PRINCIPAL */
+#next-btn,
+.brutal-card button[onclick*="download"],
+.tech-buttons button {
+  background-color: var(--accent);
+  color: var(--ink);
+  border: 4px solid var(--ink);
+  padding: 1.2rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  box-shadow: 8px 8px 0px 0px var(--ink);
+  font-family: 'Montserrat', sans-serif;
+}
+
+#next-btn:hover,
+.brutal-card button[onclick*="download"]:hover,
+.tech-buttons button:hover {
+  transform: translate(-4px, -4px);
+  box-shadow: 12px 12px 0px 0px var(--ink);
+}
+
+#next-btn:active,
+.brutal-card button[onclick*="download"]:active,
+.tech-buttons button:active {
+  transform: translate(4px, 4px);
+  box-shadow: 4px 4px 0px 0px var(--ink);
+}
+
+/* SECCIÓN DE SELECCIÓN DE TECNOLOGÍAS */
+.tech-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.tech-buttons button {
+  padding: 1.5rem;
+  min-height: 100px;
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tech-buttons button:nth-child(1) {
+  background-color: #FF9800;
+}
+
+.tech-buttons button:nth-child(2) {
+  background-color: #2196F3;
+}
+
+.tech-buttons button:nth-child(3) {
+  background-color: #FF5722;
+}
+
+/* CERTIFICADO - SECCIÓN FINAL */
+#certificate-box {
+  text-align: center;
+}
+
+#certificate-box h2 {
+  color: #00aa00;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.certificate {
+  background-color: var(--color-surface-container-lowest);
+  border: 6px solid var(--ink);
+  padding: 3rem;
+  margin: 2rem 0;
+  box-shadow: 12px 12px 0px 0px var(--ink);
+  position: relative;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, var(--color-surface-container-lowest) 0%, var(--accent) 100%);
+}
+
+.certificate::before {
+  content: '';
+  position: absolute;
+  top: -15px;
+  left: -15px;
+  right: -15px;
+  bottom: -15px;
+  border: 2px dashed var(--ink);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.certificate h3 {
+  font-size: 2.5rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0 0 1rem 0;
+  color: var(--accent-2);
+}
+
+.certificate p {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0.5rem 0;
+}
+
+.certificate #user-name {
+  font-size: 2rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin: 1rem 0;
+  color: var(--ink);
+  border-bottom: 3px solid var(--ink);
+  padding-bottom: 0.5rem;
+}
+
+.certificate #cert-tech {
+  background-color: var(--accent);
+  color: var(--ink);
+  padding: 0.3rem 0.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  display: inline-block;
+  border: 2px solid var(--ink);
+  margin: 0 0.5rem;
+}
+
+/* RESPONSIVO - Tablets */
+@media (max-width: 768px) {
+  .brutal-header {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+
+  .brutal-header h1 {
+    font-size: 1.8rem;
+  }
+
+  .tech-buttons {
+    grid-template-columns: 1fr;
+  }
+
+  .brutal-card {
+    padding: 1.5rem;
+  }
+
+  .quiz-container {
+    padding: 1rem;
+  }
+
+  #question-title {
+    margin: -1.5rem -1.5rem 1.5rem -1.5rem;
+  }
+
+  .option-btn {
+    padding: 1.2rem;
+    font-size: 1rem;
+  }
+
+  #next-btn,
+  .brutal-card button[onclick*="download"],
+  .tech-buttons button {
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
+  }
+}
+
+/* RESPONSIVO - Móviles */
+@media (max-width: 480px) {
+  .brutal-header h1 {
+    font-size: 1.4rem;
+  }
+
+  .brutal-card {
+    padding: 1rem;
+    border: 3px solid var(--ink);
+    box-shadow: 4px 4px 0px 0px var(--ink);
+  }
+
+  #question-text {
+    font-size: 1.1rem;
+  }
+
+  .option-btn {
+    padding: 1rem;
+    font-size: 0.95rem;
+    box-shadow: 4px 4px 0px 0px var(--ink);
+  }
+
+  .option-btn:hover {
+    box-shadow: 6px 6px 0px 0px var(--ink);
+  }
+
+  .certificate {
+    padding: 1.5rem;
+    border: 4px solid var(--ink);
+    box-shadow: 6px 6px 0px 0px var(--ink);
+    min-height: auto;
+  }
+
+  .certificate h3 {
+    font-size: 1.8rem;
+  }
+}
