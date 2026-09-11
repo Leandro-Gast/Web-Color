@@ -1,0 +1,341 @@
+<!DOCTYPE html><html lang="es" data-mode="light"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>FRONTEND ACADEMY - Domina el Frontend sin rodeos</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script 
+id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-container": "#080cff",
+                        "on-primary-fixed": "#1d1d00",
+                        "error": "#ba1a1a",
+                        "surface-container-lowest": "#ffffff",
+                        "primary": "#626200",
+                        "on-surface-variant": "#484831",
+                        "surface-container-high": "#ece9d3",
+                        "primary-container": "#ffff00",
+                        "on-primary-container": "#757500",
+                        "on-secondary-container": "#b6baff",
+                        "surface-tint": "#626200",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed": "#c0eaeb",
+                        "on-tertiary-container": "#507878",
+                        "secondary": "#0001c0",
+                        "on-error": "#ffffff",
+                        "primary-fixed": "#eaea00",
+                        "tertiary-fixed-dim": "#a4cece",
+                        "on-secondary-fixed-variant": "#0000ef",
+                        "tertiary": "#3d6565",
+                        "secondary-fixed": "#e0e0ff",
+                        "inverse-on-surface": "#f5f1dc",
+                        "surface-container-highest": "#e6e3ce",
+                        "error-container": "#ffdad6",
+                        "surface-dim": "#dedbc6",
+                        "on-error-container": "#93000a",
+                        "primary-fixed-dim": "#cdcd00",
+                        "secondary-fixed-dim": "#bec2ff",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "surface-container": "#f2efd9",
+                        "on-surface": "#1c1c0f",
+                        "outline": "#79785f",
+                        "surface-bright": "#fdfae4",
+                        "surface-container-low": "#f7f4df",
+                        "background": "#ffffff",
+                        "tertiary-container": "#d4ffff",
+                        "on-secondary-fixed": "#00006e",
+                        "surface": "#fdfae4",
+                        "inverse-surface": "#323123",
+                        "inverse-primary": "#cdcd00",
+                        "surface-variant": "#e6e3ce",
+                        "on-tertiary-fixed": "#002020",
+                        "on-tertiary-fixed-variant": "#244d4e",
+                        "on-background": "#000000",
+                        "outline-variant": "#cac8aa",
+                        "on-primary-fixed-variant": "#494900"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0px",
+                        "lg": "0px",
+                        "xl": "0px",
+                        "full": "0px"
+                    },
+                    "spacing": {
+                        "margin": "32px",
+                        "xxl": "80px",
+                        "unit": "8px",
+                        "md": "16px",
+                        "xs": "4px",
+                        "lg": "24px",
+                        "xl": "48px",
+                        "sm": "8px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Montserrat"],
+                        "headline-lg-mobile": ["Montserrat"],
+                        "label-sm": ["Inter"],
+                        "label-bold": ["Inter"],
+                        "headline-md": ["Montserrat"],
+                        "headline-xl": ["Montserrat"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["48px", { "lineHeight": "52px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "headline-lg-mobile": ["32px", { "lineHeight": "36px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0", "fontWeight": "600" }],
+                        "label-bold": ["14px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "0", "fontWeight": "700" }],
+                        "headline-xl": ["80px", { "lineHeight": "88px", "letterSpacing": "-0.04em", "fontWeight": "900" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "letterSpacing": "0", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "letterSpacing": "0", "fontWeight": "500" }]
+                    },
+                    boxShadow: {
+                        'brutal': '8px 8px 0px 0px #000000',
+                        'brutal-sm': '4px 4px 0px 0px #000000',
+                        'brutal-lg': '12px 12px 0px 0px #000000',
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { background-color: #ffffff; color: #000000; }
+        .brutal-border { border: 4px solid #000000; }
+        .brutal-shadow { box-shadow: 8px 8px 0px 0px #000000; }
+        .brutal-shadow-sm { box-shadow: 4px 4px 0px 0px #000000; }
+        .brutal-shadow-lg { box-shadow: 12px 12px 0px 0px #000000; }
+        
+        .brutal-button {
+            transition: all 0.1s ease;
+        }
+        .brutal-button:active {
+            transform: translate(4px, 4px);
+            box-shadow: 4px 4px 0px 0px #000000;
+        }
+        .brutal-button-primary:active {
+            transform: translate(8px, 8px);
+            box-shadow: 0px 0px 0px 0px #000000;
+        }
+        
+        .bg-neo-yellow { background-color: #FFFF00; }
+        .bg-neo-blue { background-color: #0000FF; }
+        .text-neo-blue { color: #0000FF; }
+    </style>
+    
+</button>
+</head>
+<body class="bg-background text-on-background font-body-md overflow-x-hidden selection:bg-primary-container selection:text-on-background">
+     <script src="script.js"></script>
+<!-- Header: TopNavBar -->
+<header class="w-full border-b-4 border-on-background bg-background sticky top-0 z-50">
+<nav class="flex justify-between items-center px-margin py-md w-full max-w-7xl mx-auto">
+<div class="flex items-center gap-sm font-headline-md text-headline-md font-black tracking-tighter text-on-background uppercase">
+    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuD4VGii_rkJqqobkr6UnifEa29D5_GAsoyI9PEDmXjwGOrTH-2ZM4uWo1wuNvt-wGkskD_XUuKgXUpRpJmA6Iw0KbkLXNaFHjoWnooknVVGdG9GtLSTrjr3WofKCuvTZQGhlu0wmjHxoXnm_sQ8Nbvf9Ok5evjLZ89CZ7fx07I0Ix7FsJv0NA-FxWEUfVZyFFogzXs2rUuFv9F3S2PMxuUuG5U5hKKm54hk2se55K9ieWlrzLfTbdUA3N8PetHE8zdcaA" alt="Logo Academia" class="h-12 w-auto">
+    
+    <span class="">ACADEMIA</span>
+</div>
+<div class="hidden md:flex space-x-lg items-center">
+<a class="text-on-background font-label-bold text-label-bold hover:bg-primary-container hover:text-on-primary-container transition-colors px-xs py-xs" href="#">Courses</a>
+<a class="text-on-background font-label-bold text-label-bold hover:bg-primary-container hover:text-on-primary-container transition-colors px-xs py-xs" href="#">Curriculum</a>
+<a class="text-on-background font-label-bold text-label-bold hover:bg-primary-container hover:text-on-primary-container transition-colors px-xs py-xs" href="#">Admissions</a>
+<a class="text-on-background font-label-bold text-label-bold hover:bg-primary-container hover:text-on-primary-container transition-colors px-xs py-xs" href="#">FAQ</a>
+</div>
+<div class="flex items-center space-x-md">
+<button id="toggle-dark" aria-label="Toggle Dark Mode" class="brutal-border brutal-shadow-sm bg-surface-container-lowest px-sm py-xs flex items-center gap-xs font-label-bold text-label-bold brutal-button">
+  <span id="mode-icon" class="material-symbols-outlined" style="font-variation-settings:'FILL' 0">dark-mode</span>
+  <span id="mode-label" class="hidden sm:inline">Modo Claro/Oscuro</span> 
+</button>
+</div>
+</nav>
+</header>
+<main>
+<!-- Hero Section -->
+<section class="w-full max-w-7xl mx-auto px-margin py-xxl grid grid-cols-1 lg:grid-cols-2 gap-xl items-center min-h-[70vh]">
+<div class="space-y-lg relative z-10">
+<h1 class="font-headline-xl text-headline-xl font-black uppercase leading-none tracking-tighter">
+                    DOMINA EL FRONTEND SIN RODEOS
+                </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl border-l-4 border-on-background pl-md">
+                    Aprende de expertos con un enfoque práctico y brutal. Deja las excusas, empieza a codear hoy mismo y construye el futuro de la web.
+                </p>
+<div class="pt-md">
+<button class="brutal-button brutal-button-primary brutal-border brutal-shadow bg-neo-yellow font-headline-md text-headline-md font-bold px-lg py-md uppercase flex items-center gap-sm group" onclick="window.location.href='test.html'">
+                        REALIZAR PRUEBA EN LÍNEA
+                        <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</div>
+</div>
+<div class="relative h-full min-h-[400px] w-full brutal-border brutal-shadow-lg overflow-hidden bg-neo-blue p-sm">
+<div class="absolute inset-0 w-full h-full border-4 border-on-background bg-surface-container-lowest" data-alt="A striking digital illustration of a stark, brutalist workspace for a frontend developer. High contrast solid colors primarily vivid yellow, intense blue, pure black and stark white. A glowing monitor displays dense raw code structure. The style is flat, vector-based neo-brutalism with thick black outlines and hard offset shadows. Technical, unpolished, highly structured aesthetic." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAfw0VaTn11ZCJ1-2B_n7dsrbaojjoaJoPXLIOkFncwidG7MOnz8v_0KGnrlzVuDSlGsNY8H_8y9LDhWQVs5flM_FdL27o_9HIYM03tQSDiRWho-WDeo_aPlrFOOMGQ59O7TC5h9c93I3J61OvP88PGKTG1Mw0Vr-m5UOaXEoIy0z5UzdzKa4OsQhIrnoCA6Jjf1EjuSg9ZzZcR0OB39Nd69Ch87F1RWZUr7fapdLndUQqIptEjd-NW')"></div>
+<div class="absolute bottom-md right-md bg-neo-yellow brutal-border brutal-shadow-sm px-sm py-xs font-label-bold text-label-bold uppercase">
+                    &lt;/CODE&gt;
+                 </div>
+</div>
+</section>
+<!-- Course Catalog -->
+<section class="w-full bg-surface-container-low py-xxl border-y-4 border-on-background">
+<div class="max-w-7xl mx-auto px-margin">
+<div class="mb-xl flex flex-col md:flex-row justify-between items-end gap-md">
+<h2 class="font-headline-lg text-headline-lg font-black uppercase">Catálogo de Cursos</h2>
+<p class="font-label-bold text-label-bold bg-on-background text-surface-container-lowest px-md py-sm">ELIGE TU ARMA</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-lg">
+<!-- Course 1 -->
+<article class="brutal-border brutal-shadow bg-[#FF5722] flex flex-col h-full hover:-translate-y-1 transition-transform">
+<div class="p-md bg-surface-container-lowest border-b-4 border-on-background flex justify-between items-center">
+<h3 class="font-headline-md text-headline-md font-bold">JavaScript</h3>
+<span class="material-symbols-outlined text-headline-md">javascript</span>
+</div>
+<div class="p-md flex-grow space-y-md text-on-background">
+<p class="font-body-md text-body-md font-medium">Domina la lógica de la web. Desde variables hasta closures, promesas y manipulación avanzada del DOM.</p>
+<div class="flex flex-wrap gap-xs">
+<span class="bg-surface-container-lowest brutal-border px-xs py-[2px] font-label-sm text-label-sm uppercase">Lógica</span>
+<span class="bg-surface-container-lowest brutal-border px-xs py-[2px] font-label-sm text-label-sm uppercase">Web</span>
+</div>
+</div>
+<div class="p-md mt-auto">
+<button class="w-full brutal-button brutal-border brutal-shadow-sm bg-surface-container-lowest font-label-bold text-label-bold py-sm uppercase flex justify-center items-center gap-xs">
+                                Ver curso <span class="material-symbols-outlined text-sm">visibility</span>
+</button>
+</div>
+</article>
+<!-- Course 2 -->
+<article class="brutal-border brutal-shadow bg-[#FF9800] flex flex-col h-full hover:-translate-y-1 transition-transform">
+<div class="p-md bg-surface-container-lowest border-b-4 border-on-background flex justify-between items-center">
+<h3 class="font-headline-md text-headline-md font-bold">HTML</h3>
+<span class="material-symbols-outlined text-headline-md">html</span>
+</div>
+<div class="p-md flex-grow space-y-md text-on-background">
+<p class="font-body-md text-body-md font-medium">La estructura lo es todo. Aprende semántica, accesibilidad y a construir los cimientos inquebrantables de cualquier sitio.</p>
+<div class="flex flex-wrap gap-xs">
+<span class="bg-surface-container-lowest brutal-border px-xs py-[2px] font-label-sm text-label-sm uppercase">Estructura</span>
+<span class="bg-surface-container-lowest brutal-border px-xs py-[2px] font-label-sm text-label-sm uppercase">Semántica</span>
+</div>
+</div>
+<div class="p-md mt-auto">
+<button class="w-full brutal-button brutal-border brutal-shadow-sm bg-surface-container-lowest font-label-bold text-label-bold py-sm uppercase flex justify-center items-center gap-xs">
+                                Ver curso <span class="material-symbols-outlined text-sm">visibility</span>
+</button>
+</div>
+</article>
+<!-- Course 3 -->
+<article class="brutal-border brutal-shadow bg-[#2196F3] flex flex-col h-full hover:-translate-y-1 transition-transform">
+<div class="p-md bg-surface-container-lowest border-b-4 border-on-background flex justify-between items-center">
+<h3 class="font-headline-md text-headline-md font-bold">CSS</h3>
+<span class="material-symbols-outlined text-headline-md">css</span>
+</div>
+<div class="p-md flex-grow space-y-md text-on-background">
+<p class="font-body-md text-body-md font-medium text-surface-container-lowest">Controla la estética con mano dura. Flexbox, Grid, animaciones y arquitectura escalable.</p>
+<div class="flex flex-wrap gap-xs">
+<span class="bg-surface-container-lowest brutal-border px-xs py-[2px] font-label-sm text-label-sm uppercase text-on-background">Diseño</span>
+<span class="bg-surface-container-lowest brutal-border px-xs py-[2px] font-label-sm text-label-sm uppercase text-on-background">UI</span>
+</div>
+</div>
+<div class="p-md mt-auto">
+<button class="w-full brutal-button brutal-border brutal-shadow-sm bg-neo-yellow font-label-bold text-label-bold py-sm uppercase flex justify-center items-center gap-xs text-on-background">
+                                Ver curso <span class="material-symbols-outlined text-sm">visibility</span>
+</button>
+</div>
+</article>
+<!-- Course 4 -->
+<article class="brutal-border brutal-shadow bg-[#4CAF50] flex flex-col h-full hover:-translate-y-1 transition-transform">
+<div class="p-md bg-surface-container-lowest border-b-4 border-on-background flex justify-between items-center">
+<h3 class="font-headline-md text-headline-md font-bold">Bases de Datos SQL</h3>
+<span class="material-symbols-outlined text-headline-md">database</span>
+</div>
+<div class="p-md flex-grow space-y-md text-on-background">
+<p class="font-body-md text-body-md font-medium">Relaciones fuertes, consultas letales. Domina el modelo relacional y exprime la información.</p>
+<div class="flex flex-wrap gap-xs">
+<span class="bg-surface-container-lowest brutal-border px-xs py-[2px] font-label-sm text-label-sm uppercase">Datos</span>
+<span class="bg-surface-container-lowest brutal-border px-xs py-[2px] font-label-sm text-label-sm uppercase">Relacional</span>
+</div>
+</div>
+<div class="p-md mt-auto">
+<button class="w-full brutal-button brutal-border brutal-shadow-sm bg-surface-container-lowest font-label-bold text-label-bold py-sm uppercase flex justify-center items-center gap-xs">
+                                Ver curso <span class="material-symbols-outlined text-sm">visibility</span>
+</button>
+</div>
+</article>
+<!-- Course 5 -->
+<article class="brutal-border brutal-shadow bg-[#9C27B0] flex flex-col h-full hover:-translate-y-1 transition-transform">
+<div class="p-md bg-surface-container-lowest border-b-4 border-on-background flex justify-between items-center">
+<h3 class="font-headline-md text-headline-md font-bold">Bases de Datos NoSQL</h3>
+<span class="material-symbols-outlined text-headline-md">schema</span>
+</div>
+<div class="p-md flex-grow space-y-md text-surface-container-lowest">
+<p class="font-body-md text-body-md font-medium">Flexibilidad extrema para sistemas masivos. Rompe los esquemas tradicionales con MongoDB y similares.</p>
+<div class="flex flex-wrap gap-xs">
+<span class="bg-surface-container-lowest brutal-border px-xs py-[2px] font-label-sm text-label-sm uppercase text-on-background">Escalabilidad</span>
+<span class="bg-surface-container-lowest brutal-border px-xs py-[2px] font-label-sm text-label-sm uppercase text-on-background">Documentos</span>
+</div>
+</div>
+<div class="p-md mt-auto">
+<button class="w-full brutal-button brutal-border brutal-shadow-sm bg-neo-yellow font-label-bold text-label-bold py-sm uppercase flex justify-center items-center gap-xs text-on-background">
+                                Ver curso <span class="material-symbols-outlined text-sm">visibility</span>
+</button>
+</div>
+</article>
+<!-- Course 6 -->
+<article class="brutal-border brutal-shadow bg-[#E91E63] flex flex-col h-full hover:-translate-y-1 transition-transform">
+<div class="p-md bg-surface-container-lowest border-b-4 border-on-background flex justify-between items-center">
+<h3 class="font-headline-md text-headline-md font-bold">Metodologías Ágiles</h3>
+<span class="material-symbols-outlined text-headline-md">sync</span>
+</div>
+<div class="p-md flex-grow space-y-md text-surface-container-lowest">
+<p class="font-body-md text-body-md font-medium">El código no sirve sin proceso. Entrega valor constante, adáptate al cambio y lidera equipos técnicos.</p>
+<div class="flex flex-wrap gap-xs">
+<span class="bg-surface-container-lowest brutal-border px-xs py-[2px] font-label-sm text-label-sm uppercase text-on-background">Scrum</span>
+<span class="bg-surface-container-lowest brutal-border px-xs py-[2px] font-label-sm text-label-sm uppercase text-on-background">Gestión</span>
+</div>
+</div>
+<div class="p-md mt-auto">
+<button class="w-full brutal-button brutal-border brutal-shadow-sm bg-surface-container-lowest font-label-bold text-label-bold py-sm uppercase flex justify-center items-center gap-xs text-on-background">
+                                Ver curso <span class="material-symbols-outlined text-sm">visibility</span>
+</button>
+</div>
+</article>
+</div>
+</div>
+</section>
+<!-- Interactive Test Section -->
+<section class="w-full py-xxl bg-background">
+<div class="max-w-4xl mx-auto px-margin text-center">
+<div class="brutal-border brutal-shadow-lg p-xl bg-neo-yellow relative overflow-hidden">
+<!-- Background accent grid -->
+<div class="absolute inset-0 opacity-20 pointer-events-none" style="background-image: radial-gradient(circle at 2px 2px, black 1px, transparent 0); background-size: 24px 24px;"></div>
+<h2 class="font-headline-lg text-headline-lg font-black uppercase mb-md relative z-10">¿CREES QUE SABES FRONTEND?</h2>
+<p class="font-body-lg text-body-lg font-medium mb-lg max-w-2xl mx-auto relative z-10">
+                        Demuestra tu nivel técnico. Sin rodeos, sin ayuda de la IA.
+                    </p>
+<button class="brutal-button brutal-border brutal-shadow bg-surface-container-lowest font-headline-md text-headline-md font-black px-xl py-lg uppercase relative z-10 hover:bg-neo-blue hover:text-surface-container-lowest">
+                        Ponte a prueba: Test Interactivo de 10 Preguntas
+                    </button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="flex flex-col md:flex-row justify-between items-center px-margin py-xl w-full bg-on-background dark:bg-on-background text-background dark:text-surface-bright font-label-bold text-label-bold border-t-4 border-on-background">
+<div class="font-headline-md text-headline-md text-background mb-md md:mb-0">
+            © 2024 FRONTEND ACADEMY. BUILT FOR SPEED.
+        </div>
+<div class="flex gap-lg">
+<a class="text-surface-variant hover:text-primary-fixed-dim transition-colors" href="#">Privacy</a>
+<a class="text-surface-variant hover:text-primary-fixed-dim transition-colors" href="#">Terms</a>
+<a class="text-surface-variant hover:text-primary-fixed-dim transition-colors" href="#">Discord</a>
+<a class="text-surface-variant hover:text-primary-fixed-dim transition-colors" href="#">Github</a>
+</div>
+</footer>
+
+<script src="script.js"></script>
+</body></html>
