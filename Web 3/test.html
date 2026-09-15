@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es" data-mode="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prueba en Línea - Brutalist Frontend Academy</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="brutal-header">
+        <h1>PRUEBA EN LÍNEA</h1>
+        <a href="index.html" class="btn-back">← Volver al Inicio</a>
+    </header>
+
+    <main class="quiz-container">
+        <!-- Paso 1: Selección de Tecnología -->
+        <section id="select-tech" class="brutal-card">
+            <h2>Elige la tecnología a evaluar</h2>
+            <div class="tech-buttons">
+                <button onclick="startQuiz('HTML')">HTML</button>
+                <button onclick="startQuiz('CSS')">CSS</button>
+                <button onclick="startQuiz('JavaScript')">JavaScript</button>
+            </div>
+        </section>
+
+        <!-- Paso 2: Contenedor del Test (Oculto al inicio) -->
+        <section id="quiz-box" class="brutal-card" style="display: none;">
+            <h3 id="question-title"></h3>
+            <p id="question-text"></p>
+            <div id="options-container"></div>
+            <button id="next-btn" onclick="nextQuestion()" style="display: none;">Siguiente →</button>
+        </section>
+
+        <!-- Paso 3: Certificado (Oculto hasta terminar) -->
+        <section id="certificate-box" class="brutal-card" style="display: none;">
+            <h2>¡Felicitaciones! Has aprobado el test.</h2>
+            <div id="certificate-preview" class="certificate">
+                <h3>CERTIFICADO DE APROBACIÓN</h3>
+                <p>Otorgado a:</p>
+                <h4 id="user-name">[Tu Nombre]</h4>
+                <p>Por completar exitosamente la prueba de <span id="cert-tech"></span></p>
+            </div>
+            <button onclick="downloadCertificate()">Descargar Certificado (PNG/JPG)</button>
+        </section>
+    </main>
+
+    <script src="quiz.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
