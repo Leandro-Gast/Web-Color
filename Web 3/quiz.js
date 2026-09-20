@@ -4,9 +4,9 @@
 
 const questionsDB = {
     HTML: [
-        { q: "¿Qué etiqueta se usa para el título principal de una página?", options: ["<h1>", "<head>", "<title>"], answer: 0 },
+        { q: "¿Qué etiqueta se usa para el título principal de una página?", options: ["&lt;h1&gt;", "&lt;head&gt;", "&lt;title&gt;"], answer: 0 },
         { q: "¿Qué significa HTML?", options: ["Hyper Text Markup Language", "Home Tool Markup Language", "Hyperlinks and Text Markup Language"], answer: 0 },
-        { q: "¿Cuál es la estructura básica de un documento HTML?", options: ["<!DOCTYPE html>, <html>, <head>, <body>", "<html>, <body>", "Solo <html>"], answer: 0 },
+        { q: "¿Cuál es la estructura básica de un documento HTML?", options: ["&alt;DOCTYPE html&gt","&lthtml&gt", "&lthead&gt", "&ltbody&gt", "&lthtml&gt", <body>", "Solo <html>"], answer: 0 },
         { q: "¿Qué etiqueta se usa para crear un párrafo?", options: ["<p>", "<paragraph>", "<text>"], answer: 0 },
         { q: "¿Para qué sirve la etiqueta <meta charset='UTF-8'>?", options: ["Define la codificación de caracteres", "Define el título de la página", "Define el color de fondo"], answer: 0 },
         { q: "¿Cuál etiqueta crea un enlace hipervinculado?", options: ["<a>", "<link>", "<href>"], answer: 0 },
@@ -14,7 +14,7 @@ const questionsDB = {
         { q: "¿Cuál es el atributo obligatorio de la etiqueta <img>?", options: ["src", "href", "alt"], answer: 0 },
         { q: "¿Qué etiqueta se usa para crear una lista no ordenada?", options: ["<ul>", "<ol>", "<li>"], answer: 0 },
         { q: "¿Cuál es la diferencia entre <div> y <span>?", options: ["<div> es bloque, <span> es inline", "No hay diferencia", "<span> es bloque"], answer: 0 }
-    ],
+    ],                                                                                 
     CSS: [
         { q: "¿Qué propiedad cambia el color del texto?", options: ["color", "background-color", "text-style"], answer: 0 },
         { q: "¿Cómo se selecciona un ID en CSS?", options: ["#mi-id", ".mi-id", "mi-id"], answer: 0 },
